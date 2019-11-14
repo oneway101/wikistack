@@ -1,20 +1,25 @@
+const express = require('express')
 const router = require('express').Router();
-const wikipage = require('./views/main');
+const wikipage = require('../views/main');
+const addPage = require('../views/addPage')
 
-router.get('/', (req,res,next)=> {
+router.use(express.urlencoded({extended: false}))
 
-  res.send()
-})
 
-router.post('/', (req,res,next)=> {
 
-  res.send()
-})
+// router.get('/', (req,res,next)=> {
 
-router.get('/add', (req,res,next)=> {
+//   res.send()
+// })
 
-  res.send()
-})
+// router.post('/', (req,res,next)=> {
 
+//   res.send()
+// })
+
+// router.get('/add', (req,res,next)=> {
+
+//   res.send(addPage())
+// })
 
 module.exports = router();

@@ -17,7 +17,7 @@ const init = async () => {
   // await models.db.async()
   // await models.User.async()
   // await models.Page.async()
-  app.listen(2222, () => {
+  app.listen(3000, () => {
     console.log(`Server is listening on port`)
   })
 }
@@ -28,3 +28,5 @@ then(() => {
 })
 
 init()
+
+// app.use('/wiki', wikiRoute)

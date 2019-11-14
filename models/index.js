@@ -4,6 +4,7 @@ const db = new Sequelize('postgres://localhost:5432/wikistack', {
 });
 
 
+
 const Page = db.define('pages', {
   title: {
     type: Sequelize.STRING,
