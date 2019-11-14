@@ -11,6 +11,8 @@ const userRoute = require('./routes/user');
 const app = express()
 
 app.use(morgan('dev'))
+app.use(express.urlencoded({extended: false}))
+app.use(express.static(__dirname + "/static"));
 
 const init = async () => {
   await db.sync({force: true})
@@ -28,5 +30,4 @@ then(() => {
 })
 
 init()
-
-// app.use('/wiki', wikiRoute)
+app.use('/wiki', wikiRoute);
