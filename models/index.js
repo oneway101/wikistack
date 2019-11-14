@@ -37,6 +37,16 @@ const User = db.define('users', {
   }
 })
 
+
+Page.beforeValidate((page) => {
+  page.slug = page.title.replace(/\s/g,"_").replace(/\W/g, '');
+
+  console.log('from sqlize', page.slug)
+})
+
+
+
+
 module.exports = {
   db, Page, User
 }
