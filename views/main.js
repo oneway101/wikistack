@@ -11,7 +11,6 @@ module.exports = (pages) => layout(html`
   <hr>
   <ul class="list-unstyled">
     <ul>
-      <li>${pages}</li>
       ${pages.map(page => html`<a href= "/wiki/${page.slug}">${page.title}</a>`)}
     </ul>
   </ul>`);

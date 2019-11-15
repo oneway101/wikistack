@@ -5,7 +5,7 @@ const db = new Sequelize('postgres://localhost:5432/wikistack', {
 
 
 
-const Page = db.define('pages', {
+const Page = db.define('page', {
   title: {
     type: Sequelize.STRING,
     allowNull: false
@@ -23,7 +23,7 @@ const Page = db.define('pages', {
 
 
 
-const User = db.define('users', {
+const User = db.define('user', {
   name: {
     type: Sequelize.STRING,
     allowNull: false
@@ -37,17 +37,12 @@ const User = db.define('users', {
   }
 })
 
-
 Page.beforeValidate((page) => {
-  page.slug = page.title.replace(/\s/g,"_").replace(/\W/g, '');
-
-  console.log('from sqlize', page.slug)
+  page.slug = page.title.replace(/\s/g,"_").replace(/\W/g, '').toLowerCase();
 })
 
+Page.belongsTo(User, { as: 'author'})
+User.hasMany(Page)
 
-
-
-module.exports = {
-  db, Page, User
-}
+module.exports = { db, Page, User }
 

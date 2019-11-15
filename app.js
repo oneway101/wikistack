@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.static(__dirname + "/static"));
 
 const init = async () => {
-  await db.sync()
+  await db.sync({force: true})
   // await models.db.async()
   // await models.User.async()
   // await models.Page.async()
@@ -30,3 +30,4 @@ then(() => {
 
 init()
 app.use('/wiki', wikiRoute);
+//app.use('/user', userRoute);
